@@ -8,7 +8,7 @@ public class test {
 		
 		
 		// test **Monom**
-		
+		//git test
 		
 		Monom m1 = new Monom(0.0, 0); // construct the zero monom
 		System.out.println("monom m1 = " + m1); // prints the zero monom
