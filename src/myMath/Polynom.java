@@ -157,10 +157,18 @@ public class Polynom implements Polynom_able{
 					flag = true;
 				}
 			}
-			if(flag == false)
+			if(flag == false) 
 				monoms.add(new Monom (-(temp.get_coefficient()), temp.get_power()));
+			flag = false ;
 		}
-		this.monoms.sort(cmpByPow);	
+		this.monoms.sort(cmpByPow);
+		Iterator<Monom> it1 = monoms.iterator();
+		if(it1.next().get_coefficient() == 0) {
+			this.monoms.clear();
+			Monom m1 = new Monom(); 
+			this.monoms.add(m1);
+		}
+			
 	}
 
 	@Override
@@ -261,6 +269,28 @@ public class Polynom implements Polynom_able{
 			x1 += eps;			
 		}
 		return area;
+	}
+	
+	/**
+	 * Compute Riemann's Integral over this Polynom starting from x0, till x1 using eps size steps,
+	 * see: https://en.wikipedia.org/wiki/Riemann_integral
+	 * @return the approximated area under the x-axis below this Polynom and between the [x0,x1] range.
+	 * @param x0 represent the start point to check area.
+	 * @param x1 represent the end point to check area.
+	 * @param eps represent the accuracy of the answer.
+	 */
+	
+	public double areaUnder(double x0, double x1, double eps) {
+		double length = x1 - x0;
+		double loops = (length / eps); 
+		double area = 0.0;
+		for (int i = 0 ; i<loops ; i++) {
+			if(f(x0) < 0)
+				area += (eps * f(x0));
+			x0 += eps;
+			x1 += eps;			
+		}
+		return -area;
 	}
 
 	@Override

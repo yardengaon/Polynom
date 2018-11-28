@@ -12,6 +12,13 @@ public class Monom implements function{
 	private double _coefficient; 
 	private int _power;
 	
+	
+	public Monom() 
+	{
+		this.set_coefficient(0);
+		this.set_power(0);
+		
+	}
 	/**
 	 * this constructor create a new Monom  
 	 * @param a represent the coefficient
@@ -192,6 +199,8 @@ public class Monom implements function{
 		if(get_power() == m1.get_power()) {
 			double c = (get_coefficient() - m1.get_coefficient());
 			set_coefficient(c);
+			if(c == 0)
+				set_power(0);
 		}
 	}
 	
@@ -211,6 +220,17 @@ public class Monom implements function{
 			
 		}
 		
+	}
+	
+	/**
+	 * Test if this is the Zero Monom
+	 * @return true if this Polynom is the zero Monom
+	 */
+	
+	public boolean isZero() {
+		if(this.get_coefficient() == 0 && this.get_power() == 0)
+			return true;
+		return false;
 	}
 	
 	/**

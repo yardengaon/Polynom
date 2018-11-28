@@ -4,12 +4,15 @@ public class test {
 	
 	static Scanner userInput = new Scanner(System.in);
 
-	public static void main(String[] args) {
 		
-		
+		 public static void main(String[] args) {
+//		    	Polynom p1 = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
+//		        LinePlotTest frame = new LinePlotTest(p1 , -2.0 , 6.0);
+//		        frame.setVisible(true);
+//		    
+		    
 		// test **Monom**
-		//git test
-		
+		        
 		Monom m1 = new Monom(0.0, 0); // construct the zero monom
 		System.out.println("monom m1 = " + m1); // prints the zero monom
 		
@@ -63,10 +66,10 @@ public class test {
 		// test **Polynom**
 		
 		
-		Polynom p1 = new Polynom(); // construct the zero Polynom
-		System.out.println("Polynom p1 = " + p1); // prints the zero Polynom
+		Polynom p11 = new Polynom(); // construct the zero Polynom
+		System.out.println("Polynom p11 = " + p11); // prints the zero Polynom
 		
-		Polynom p2 = new Polynom(p1); // copy constructor => construct the zero polynom by another zero polynom
+		Polynom p2 = new Polynom(p11); // copy constructor => construct the zero polynom by another zero polynom
 		System.out.println("Polynom p2 = " + p2); // prints the zero Polynom
 		
 		Polynom p3 = new Polynom("0*x^0"); // construct the zero Polynom by string
@@ -125,12 +128,6 @@ public class test {
 		
 		double area = p9.area(-1.0, 2.0, 0.001);
 		System.out.println("possitive area of polynom p9 between (-1,2) = " + area); // prints the area value
-		
-		
-		
-		
-		
-
-	}
-
+			
+		 }
 }
